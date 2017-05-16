@@ -11,13 +11,29 @@ import {
   Text,
   View
 } from 'react-native';
+import Gen from './utils/gen';
 
 export default class juice extends Component {
+
+  constructor(props) {
+    super(props);
+
+    Gen.initApp();
+
+    this.getInitialView();
+
+    this.state = {
+      userLoaded: false,
+      initialView: null
+    };
+
+    this.getInitialView = this.getInitialView.bind(this);
+  }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to React Native world!
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
